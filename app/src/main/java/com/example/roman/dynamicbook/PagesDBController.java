@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -14,13 +15,14 @@ import java.util.ArrayList;
 public class PagesDBController {
     PagesDBController(Context context)
     {
-        tdb = new MyDBOpenHelper(context, "dev.db", null, 2);
+        tdb = new MyDBOpenHelper(context, "dev.db", null, 3);
         sdb = tdb.getWritableDatabase();
     }
 
     boolean addPage(Page page)
     {
         ContentValues cv = new ContentValues();
+        Log.d("ICI", String.valueOf(page.is_plain));
         if (page.is_plain == 1)
         {
             cv.put("CONTENT", page.plain_content);

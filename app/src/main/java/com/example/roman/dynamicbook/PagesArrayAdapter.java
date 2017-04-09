@@ -28,13 +28,21 @@ public class PagesArrayAdapter extends BaseAdapter {
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convert_view = inflator.inflate(R.layout.page_entry, parent,
                     false);
-            holder.content = (TextView) convert_view.findViewById(R.id.tv_content);
+            holder.tv_content = (TextView) convert_view.findViewById(R.id.tv_content);
             convert_view.setTag(holder);
         }
         else {
             holder = (ViewHolder) convert_view.getTag();
         }
-        holder.content.setText(al_items.get(position).plain_content);
+        if (al_items.get(position).is_plain == 1)
+        {
+            holder.tv_content.setText(al_items.get(position).plain_content);
+        }
+        else
+        {
+            holder.tv_content.setText(al_items.get(position).url_content);
+        }
+
         return convert_view;
     }
     public int getCount() { return al_items.size(); }
@@ -42,7 +50,7 @@ public class PagesArrayAdapter extends BaseAdapter {
     public Object getItem(int position) { return al_items.get(position); }
 
     static class ViewHolder {
-        public TextView content;
+        public TextView tv_content;
     }
 
     private Context context;
