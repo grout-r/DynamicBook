@@ -20,7 +20,18 @@ public class Page implements Parcelable
 
     public static final Parcelable.Creator<Page> CREATOR = new Creator<Page>() {
         public Page createFromParcel(Parcel source) {
-            return new Page(source.readInt(), source.readInt(), source.readString());
+            int id = source.readInt();
+            int is_plain = source.readInt();
+            String plain = source.readString();
+            String url = source.readString();
+            if (is_plain == 1)
+            {
+                return new Page(id, is_plain, plain);
+            }
+            else
+            {
+                return new Page(id, is_plain, url);
+            }
         }
         public Page[] newArray(int size) {
             return new Page[size];

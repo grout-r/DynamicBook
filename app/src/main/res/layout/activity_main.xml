@@ -33,11 +33,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/add_url_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_url"/>
+
         <Button
             android:id="@+id/add_page_bt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="1"
             android:text="@string/add_page"/>
 
     </LinearLayout>
